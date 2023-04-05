@@ -1,0 +1,223 @@
+@charset "UTF-8";
+body {
+  font-family: 'Meiryo', 'Hiragino kaku Gothic Pro', 'sans-serif';
+  margin: 0 auto;
+}
+
+/* Smartphone
+-------------------------------------------------- */
+@media only screen and (max-width: 479px) {
+  body {
+    font-family: 'Meiryo', 'Hiragino kaku Gothic Pro', 'sans-serif';
+    margin: 0 auto;
+  }
+}
+/* Tablet
+-------------------------------------------------- */
+@media only screen and (min-width: 480px) and (max-width: 959px) {
+  body {
+    font-family: 'Meiryo', 'Hiragino kaku Gothic Pro', 'sans-serif';
+    margin: 0 auto;
+  }
+}
+/* PC(small)
+-------------------------------------------------- */
+@media only screen and (min-width: 960px) and (max-width: 1279px) {
+  body {
+    font-family: 'Meiryo', 'Hiragino kaku Gothic Pro', 'sans-serif';
+    margin: 0 auto;
+  }
+}
+/* PC(large)
+-------------------------------------------------- */
+@media only screen and (min-width: 1280px) {
+  body {
+    font-family: 'Meiryo', 'Hiragino kaku Gothic Pro', 'sans-serif';
+    margin: 0 auto;
+  }
+}
+/* new line ok is wrap */
+.mate-outside {
+  display: -webkit-flex;
+  /*--- safari（PC）用 ---*/
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.mate-outside .keyid-area {
+  margin: 30px 0 0 30px;
+  width: 30%;
+}
+.mate-outside .mate-listarea {
+  margin: 50px 0 0 30px;
+  display: -webkit-flex;
+  /*--- safari（PC）用 ---*/
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.mate-outside .mate-listarea .mate-oneline {
+  margin-right: 10px;
+}
+
+#container header, main {
+  width: 100%;
+}
+
+header #rondell {
+  margin: 0 auto;
+}
+
+.my-login-content {
+  display: block;
+  width: 40%;
+  background-color: #03a9f4;
+  border: double black;
+  margin: 8% auto;
+  padding: 0 0 30px 30px;
+}
+.my-login-content form label, .my-login-content form input {
+  margin: 40px 0 40px 0;
+}
+.my-login-content form input[name="nickname"] {
+  width: 260px;
+}
+
+#content {
+  display: block;
+  margin-bottom: 60px;
+}
+#content form#upload-zone {
+  margin: 20px 0 30px 0;
+}
+#content form#upload-zone .input-outside {
+  display: -webkit-flex;
+  /*--- safari（PC）用 ---*/
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+#content form#upload-zone .input-outside .input-inside label {
+  font-size: 18px;
+  font-weight: bold;
+}
+#content form#upload-zone .input-outside .input-inside input#select-file {
+  display: none;
+}
+#content form#upload-zone .input-outside .input-inside input#alter-button {
+  display: block;
+  margin: 0 0 20px 0;
+}
+#content form#upload-zone .input-outside .input-inside #print-image {
+  margin: 1rem auto;
+}
+#content form#upload-zone .input-outside .my-up-button {
+  margin: 90px 0 0 20px;
+}
+#content #list {
+  display: -webkit-flex;
+  /*--- safari（PC）用 ---*/
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  overflow-x: auto;
+}
+#content #list .my-card {
+  width: 200px;
+  height: 200px;
+}
+#content #list .my-card a img#target-image {
+  max-width: 200px;
+  height: auto;
+}
+#content img.view-image, #content img.edit-target {
+  max-width: 400px;
+  max-height: 300px;
+  margin-bottom: 20px;
+}
+#content .confirm-ok {
+  margin-bottom: 5%;
+  font-size: 24px;
+}
+
+textarea#articlist {
+  display: none;
+}
+
+#box {
+  width: 75%;
+  height: 250px;
+  background-color: #bababa;
+  overflow-y: auto;
+  /*	overflow-y: scroll;*/
+  margin: 0 0 20px 40px;
+}
+#box .board textarea {
+  display: none;
+  height: 120px;
+  margin: 20px;
+}
+#box .board .loader {
+  background-image: url("../images/gif-load.gif");
+  /*	display: none;*/
+  width: 96px;
+  height: 96px;
+  margin: 0 auto;
+}
+#box .board [class^="frog"] {
+  margin-bottom: 15px;
+}
+#box .board [class^="cat"] {
+  font-size: 18px;
+  margin: 10px 0 10px 0;
+}
+#box .board [class^="cat"]:first-child, #box .board [class^="cat"]:nth-child(3n+1) {
+  background-color: #2196f3;
+  opacity: 0.7;
+}
+#box .board [class^="cat"]:nth-child(2), #box .board [class^="cat"]:nth-child(3n+2) {
+  background-color: #64dd17;
+  opacity: 0.7;
+}
+#box .board [class^="cat"]:nth-child(3n) {
+  background-color: #d500f9;
+  opacity: 0.7;
+}
+
+/* Modal window */
+.graylayer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: gray;
+  opacity: .7;
+  z-index: 20;
+}
+
+.overlayer {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 60%;
+  background-color: #b0bec5;
+  z-index: 30;
+}
+.overlayer .confirm-phrase {
+  display: block;
+  margin: 3% auto;
+  color: #64ffda;
+  font-size: 20px;
+}
+.overlayer .my-delete-button {
+  display: block;
+  width: 120px;
+  height: 65px;
+  font-size: 18px;
+  margin: 10% auto;
+}
+
+/*# sourceMappingURL=style.css.map */

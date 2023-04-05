@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<title>説明入力 - お気に入り画像閲覧</title>
+    {% include "_headbase.html" %}
+    <script type="text/javascript" src="../static/js/appear-textarea.js"></script>
+</head>
+<body class="mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div id="container" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <main>
+            <div id="content" class="mdl-layout__content">
+                <img src={{ image_url }} alt="アップロード" class="view-image" />
+                <form class="form" method="POST">
+                    <input type="hidden" value={{ item_name }} name="item">
+                    <label for="Content">内容</label>
+                    <div id="box">
+                        <div class="board">
+                            <div class="loader"></div>
+                            <div class="loader"></div>
+
+                            <textarea name="rat" cols="50" row="10"></textarea>
+                            <textarea name="ox" cols="50" row="10"></textarea>
+                            <textarea name="tiger" cols="50" row="10"></textarea>
+                            <textarea name="hare" cols="50" row="10"></textarea>
+                            <textarea name="dragon" cols="50" row="10"></textarea>
+                            <textarea name="serpent" cols="50" row="10"></textarea>
+                            <textarea name="horse" cols="50" row="10"></textarea>
+                            <textarea name="sheep" cols="50" row="10"></textarea>
+                            <textarea name="monky" cols="50" row="10"></textarea>
+                            <textarea name="rooster" cols="50" row="10"></textarea>
+                            <textarea name="dog" cols="50" row="10"></textarea>
+                            <textarea name="boar" cols="50" row="10"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="mdl-button mdl-js-button mdl-button--raised"> 登録 </button>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

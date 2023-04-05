@@ -1,0 +1,31 @@
+// CSS Framework _ 
+
+// Device
+$type: sm md lg xl;
+
+@import "media-query";
+ 
+/* Smartphone
+-------------------------------------------------- */
+@media only screen and (max-width:479px) {
+	$type: sm;
+	@import "media-query"
+}
+/* Tablet
+-------------------------------------------------- */
+@media only screen and (min-width:480px) and (max-width:959px) {
+	$type: md;
+	@import "media-query"
+}
+/* PC(small)
+-------------------------------------------------- */
+@media only screen and (min-width:960px) and (max-width: 1279px) {
+	$type: lg;
+	@import "media-query"
+}
+/* PC(large)
+-------------------------------------------------- */
+@media only screen and (min-width:1280px) {
+	$type: xl;
+	@import "media-query"
+}

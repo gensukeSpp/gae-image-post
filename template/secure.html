@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<title>メイン - お気に入り画像閲覧</title>
+	{% include "_headbase.html" %}
+	<link rel="stylesheet" href="../static/css/jquery.rondell.css" type="text/css" media="all" title="Screen"/>
+
+	<script type="text/javascript" src="../static/js/modernizr-2.6.2.min.js"></script>
+	<script type="text/javascript" src="../static/js/jquery.rondell.js"></script>
+<!--     <script type="text/javascript" src="../static/js/file-up3.js"></script>
+ -->
+  	<script type="text/javascript" src="../static/js/retrive-list.js"></script>
+  	<script type="text/javascript" src="../static/js/rondell-opt.js"></script>
+  	<script type="text/javascript" src="../static/js/check-file.js"></script> 	
+</head>
+<body class="mdl-color--blue-50 mdl-color-text--grey-700 mdl-base">
+	<div id="container" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<header>
+			<div id="rondell"></div>
+		</header>
+		<p>ようこそ　{{ you }}　さん</p>
+		<main>
+			<div id="content" class="mdl-layout__content">
+	 			<a href="./logout">Logout</a>
+				<form id="upload-zone" method="post" action={{ up_url }} enctype="multipart/form-data">
+					<div class="input-outside">
+						<div class="input-inside">
+					 		<label for="inputFile">画像ファイル</label>
+<!-- 				 				<div id="drop-zone" class="dropzone" name="file1">ここにドロップ！</div>
+							<p>または</p>
+-->	
+	 						<input type="file" id="select-file" name="file">
+	 						<!-- 代替のインターフェイス-->
+							<input id="alter-button" type="button" value="ファイルを開く" class="mdl-button mdl-js-button mdl-button--raised" />
+							<input id="alter-text" type="text" value="選択されていません" />
+							<script type="text/javascript">
+							    var file = document.getElementById( 'select-file' );
+							    var text = document.getElementById( 'alter-text' );
+							    var button = document.getElementById( 'alter-button' );
+
+							    text.onclick = button.onclick = function()
+							    {
+							        // type="file"要素のclickイベントを発生させる
+							        file.click();
+							    }
+							    // firefox,ieでは、$('select-file').files = evt.dataTransfer.filesで反応しない
+							    file.onchange = function()
+							    {
+							        text.value = this.value;
+							    }
+							</script>
+
+ 							<div id="print-img">
+<!-- 								<p id="width-height">width: height: </p>
+ -->
+								<div id="up-image" alt=""></div>
+							</div>
+			 			</div>						
+ 						<button type="submit" class="my-up-button mdl-button mdl-js-button mdl-button--raised"> アップロード </button>
+			 		</div>
+			    </form>
+	 			<div id="list">
+
+				</div>
+			</div><!-- #content -->
+		</main>
+		<footer></footer>
+	</div><!-- #container -->
+<!-- 	<div class="graylayer"></div>
+	<div class="overlayer">
+		<div id="detail">
+
+		</div>
+	</div>
+ -->
+</body>
+</html>

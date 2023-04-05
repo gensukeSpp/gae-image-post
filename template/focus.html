@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<title>お友達選択画像 - お気に入り画像閲覧</title>
+	{% include "_headbase.html" %}
+ 	<script type="text/javascript" src="../static/js/assign-value.js"></script>
+</head>
+<body class="mdl-demo mdl-color--grey-200 mdl-color-text--grey-700 mdl-base">
+	<div id="container" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<main>
+			<div id="content" class="mdl-layout__content">
+				<img src={{ mate_image }} alt="" class="view-img">
+		        <textarea id="articlist">{{ article }}</textarea>
+		        <p>{{ image_proprietor }}さんの画像</p>
+		        <label for="Content">内容</label>
+		        <div id="box">
+		            <div class="board">
+		            </div>
+		        </div>	
+			</div>
+			<a href="javascript:history.back();">戻る</a>
+		</main>
+	</div>
+</body>
+</html>
+
+        

@@ -1,0 +1,6 @@
+
+{% for list_img_url in list_img_urls %}
+    <div class="my-card mdl-card mdl-shadow--2dp">
+		<a href={{ list_img_url['indicate_url'] }} id="call-edit"><img src={{ list_img_url['image_url'] }} id="target-image" alt="サムネイル"></a>
+	</div>
+{% endfor %}

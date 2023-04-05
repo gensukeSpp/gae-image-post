@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<title>ログイン - お気に入り画像閲覧</title>
+	{% include "_headbase.html" %}
+</head>
+<body>
+	<div id="container" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<header></header>
+		<main>
+			<div id="content" class="mdl-layout__content">
+				<div class="my-login-content">
+					<form class="form" action= "/login" method="POST">
+						<label for="nickname">YourName</label>
+						<input type="text" name="nickname" /><br>
+						<label for="password">Password</label>
+						<input type="password" name="password"/>
+						<button type="submit" class="mdl-button mdl-js-button mdl-button--raised">Login</button>
+					</form>				
+				</div>
+				<a href={{ out }} alt="Googleからのログアウト"></a>
+			</div>
+		</main>
+		<footer></footer>
+	</div>
+</body>
+</html>

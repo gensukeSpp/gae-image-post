@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>記事確認 - お気に入り画像閲覧</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="../static/css/normalize.css">
+
+	<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	
+	<link rel="stylesheet" href="../static/css/style.css">
+
+  	<script type="text/javascript" src="../static/js/confirm-addarea.js"></script>
+</head>
+<body>
+	<div id="content" class="mdl-layout__content">
+		<div class="confirm-ok">Is it OK?</div>
+	    <form class="confirm-form" method="POST">
+	    	<textarea name="" id="articlist" cols="30" rows="10">{{ confirm }}</textarea>
+	    	<div id="box">
+				<div class="board">
+					
+				</div>
+			</div>
+	        <button type="submit" class="my-up-button mdl-button mdl-js-button mdl-button--raised"> 登録 </button>
+		</form>
+	</div>
+	<a href="javascript:history.back();">戻る</a>
+</body>
+</html>

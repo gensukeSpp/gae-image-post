@@ -1,0 +1,6 @@
+
+	{% for uni_image in multi_image %}
+ 		<a href={{ uni_image['indicate_url'] }} id="detailink">
+			<img src={{ uni_image['image_url'] }} id="target-image" alt="サムネイル">
+		</a>
+	{% endfor %}

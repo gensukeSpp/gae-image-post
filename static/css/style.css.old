@@ -1,0 +1,39 @@
+
+#box {
+	width: 50%;
+	height: 250px;
+	overflow: auto;
+/*	overflow-y: scroll;
+*/}
+#box .board textarea {
+	display: none;
+	height: 120px;
+	margin: 20px;
+}
+#box .board .loader {
+	background-image: url("../images/gif-load.gif");
+/*	display: none;
+*/	width: 96px;
+	height: 96px;
+}
+/*#image-area {
+	border: 2px dotted #0B85A1;
+	width: 500px;
+	height: 350px;
+	color: #92AAB0;
+	text-align: left;
+	vertical-align: middle;
+	padding: 10px 10px 10 10px;
+	margin-bottom: 10px;
+	font-size: 200%;	
+}
+*/
+div#drop-zone {
+	margin: 1rem auto;
+	width: 20rem;
+	height: 10rem;
+	border: 1px solid #333;
+}
+div#print_image {
+	margin: 1rem auto;
+}

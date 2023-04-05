@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>記事編集 - お気に入り画像閲覧</title>
+    {% include "_headbase.html" %}
+    <script type="text/javascript" src="../static/js/assign-value.js"></script>
+    <script type="text/javascript" src="../static/js/set-action.js"></script>
+    <script type="text/javascript" src="../static/js/remove-layer.js"></script>
+    <script type="text/javascript" src="../static/js/exit-layer.js"></script>
+</head>
+<body class="mdl-color--teal-100 mdl-color-text--grey-700 mdl-base">
+    <div id="container" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <main>
+            <div id="content" class="mdl-layout__content">
+                <div id="edit">
+                    <div class="inside-edit">
+<!--                         <button id="close">閉じる</button>
+ -->
+                        <textarea id="articlist">{{ article }}</textarea>
+                        <img src={{ image_src }} class="edit-target">
+<!--                         <form class="form" action="" method="POST" id="delete-form">
+ -->
+                        <button type="submit" id="delete" class="mdl-button mdl-js-button mdl-button--raised"> 画像削除 </button>
+<!--                         </form>
+ -->
+                        <form class="form" action="" method="POST" id="article-form">
+                            <label for="Content">内容</label>
+                            <div id="box">
+                                <div class="board">
+                                
+                                </div>
+                            </div>
+                            <button type="submit" class="mdl-button mdl-js-button mdl-button--raised"> 変更 </button>
+                        </form>
+                    </div>
+                </div><!-- #edit -->
+            </div><!-- #content -->
+			<a href="javascript:history.back();">戻る</a>
+        </main>
+    </div>
+    <div class="graylayer"></div>
+    <div class="overlayer">
+        <div class="confirm-phrase">本当に削除してよろしいですか？</div>
+<!--        <img src={{ confirm_image }} alt="send-file">
+ -->
+        <form method="POST" action="" id="confirm-delete">
+            <button type="submit" class="my-delete-button mdl-button mdl-js-button mdl-button--raised">はい</button>
+        </form>
+<!--         <div class="my-close"></div>
+ -->
+    </div>
+</body>
+</html>
+        
