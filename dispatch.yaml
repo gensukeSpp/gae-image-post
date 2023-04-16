@@ -1,0 +1,3 @@
+dispatch
+  - url: "*hashbro-hr3a.appspot.com/petit_imgpost",
+  - service: default

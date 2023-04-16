@@ -4,7 +4,7 @@ import os
 import cgi
 import sys
 import urllib
-from PIL import Image
+# from PIL import Image
 from itertools import chain
 
 from google.appengine.ext import ndb
@@ -75,7 +75,7 @@ def user_required(handler):
             # If handler has no login_url specified invoke a 403 error
             try:
                 self.redirect(self.auth_config['login_url'], abort=True)
-            except (AttributeError, KeyError), e:
+            except (AttributeError, KeyError) as e:
                 self.abort(403)
         else:
             user_session = self.auth.get_user_by_session()
@@ -93,7 +93,7 @@ class SecureRequestHandler(BaseHandler):
     def get(self, principal_info):
 
         bucket_name = get_bucket_name()
-        # self.response.out.write(principal_info)
+        self.response.out.write(bucket_name)
 
         # create_upload_url にてGCSのバケット名を「gs_bucket_name」に指定する
         upload_url = blobstore.create_upload_url('/uploaded', gs_bucket_name = bucket_name + '/' + principal_info.nickname + '/')

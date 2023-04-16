@@ -4,7 +4,7 @@ import os
 
 from google.appengine.ext import ndb
 from google.appengine.api import users
-# from index import pass_admin
+from index import pass_admin
 
 import webapp2
 
@@ -101,15 +101,15 @@ class SignupForm(Form):
 
 class SignupHandler(BaseHandler):
     "Serves up a signup form, creates new users"
-    # @pass_admin
+    @pass_admin
     def get(self):
 
         # I Would like to be Decorator
-        admin = users.is_current_user_admin()
-        if not admin:
-            self.response.write('You are not an administrator.')
-        else:
-            self.render_response("register.html", form=SignupForm())
+        # admin = users.is_current_user_admin()
+        # if not admin:
+        #     self.response.write('You are not an administrator.')
+        # else:
+        self.render_response("register.html", form=SignupForm())
 
     def post(self):
 

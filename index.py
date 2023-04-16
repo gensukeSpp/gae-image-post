@@ -53,57 +53,58 @@ class AdminHandler(webapp2.RequestHandler):
             self.response.write('You are not an administrator.')
 
 # I Would like to be Decorator
-# def pass_admin(cls):
-#     def wrapper(self):
-
-#         admin = users.is_current_user_admin()
-#         if not admin:
-#             self.response.write('You are not an administrator.')
-#     return wrapper
+def pass_admin(func):
+    def inner(self, *args, **kwargs):
+        if users.get_current_user():
+            if not users.is_current_user_admin():
+                webapp2.abort(401)
+            return func(self, *args, **kwargs)
+        return self.redirect(users.create_login_url(request.url))
+    return inner
 
 class UserListHandler(webapp2.RequestHandler):
 
-    # @pass_admin
+    @pass_admin
     def get(self):
 
         # I Would like to be Decorator
-        admin = users.is_current_user_admin()
-        if not admin:
-            self.response.write('You are not an administrator.')
-        else:
-            member_keys = PostUser.query().fetch(keys_only=True)
-            member_objs = ndb.get_multi(member_keys)
-            self.response.out.write('''<html><body>
-                <head>
-                <meta charset="UTF-8">
-                <title>メンバー一覧 - 管理者用ページ</title>
-                <link rel="stylesheet" href="../static/css/style.css">
-                </head>''')
+        # admin = users.is_current_user_admin()
+        # if not admin:
+        #     self.response.write('You are not an administrator.')
+        # else:
+        member_keys = PostUser.query().fetch(keys_only=True)
+        member_objs = ndb.get_multi(member_keys)
+        self.response.out.write('''<html><body>
+            <head>
+            <meta charset="UTF-8">
+            <title>メンバー一覧 - 管理者用ページ</title>
+            <link rel="stylesheet" href="../static/css/style.css">
+            </head>''')
 
-            for member_obj in member_objs:
-                self.response.out.write('''<div class="mate-outside">''')
+        for member_obj in member_objs:
+            self.response.out.write('''<div class="mate-outside">''')
+            self.response.out.write('''
+                <div class="keyid-area">Member Name: {0}
+                <form class="form" action="/connect" method="GET">
+                    <input type="text" value={1} name="specify_user_id" />
+                    <button type="submit" class="">Select</button>
+                </form></div>
+                '''.format(member_obj.nickname, member_obj.key.id()))
+
+            mate_objs = ndb.get_multi(member_obj.mates)
+            self.response.out.write('''<div class="mate-listarea">''')            
+            self.response.out.write('''Mates:　''')            
+            for mate_obj in mate_objs:
                 self.response.out.write('''
-                    <div class="keyid-area">Member Name: {0}
-                    <form class="form" action="/connect" method="GET">
-                        <input type="text" value={1} name="specify_user_id" />
-                        <button type="submit" class="">Select</button>
-                    </form></div>
-                    '''.format(member_obj.nickname, member_obj.key.id()))
+                    <div class="mate-oneline">{}　</div>'''.format(mate_obj.nickname))
 
-                mate_objs = ndb.get_multi(member_obj.mates)
-                self.response.out.write('''<div class="mate-listarea">''')            
-                self.response.out.write('''Mates:　''')            
-                for mate_obj in mate_objs:
-                    self.response.out.write('''
-                        <div class="mate-oneline">{}　</div>'''.format(mate_obj.nickname))
-
-                self.response.out.write('''</div><!-- .mate-listarea -->
-                    </div><!-- .mate-outside -->''')
-            self.response.out.write('''</body></html>''')
+            self.response.out.write('''</div><!-- .mate-listarea -->
+                </div><!-- .mate-outside -->''')
+        self.response.out.write('''</body></html>''')
 
 class MakeMateHandler(webapp2.RequestHandler):
 
-    # @pass_admin
+    @pass_admin
     def get(self):
 
         if os.environ['REQUEST_METHOD'] != 'GET':
