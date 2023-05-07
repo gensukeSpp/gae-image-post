@@ -93,10 +93,10 @@ class SecureRequestHandler(BaseHandler):
     def get(self, principal_info):
 
         bucket_name = get_bucket_name()
-        self.response.out.write(bucket_name)
+        # self.response.out.write(bucket_name)
 
         # create_upload_url にてGCSのバケット名を「gs_bucket_name」に指定する
-        upload_url = blobstore.create_upload_url('/uploaded', gs_bucket_name = bucket_name + '/' + principal_info.nickname + '/')
+        upload_url = blobstore.create_upload_url('/uploaded', gs_bucket_name = bucket_name + '/members-image-bucket/' + principal_info.nickname + '/')
 
         context = {
             'you': principal_info.nickname,
